@@ -1,0 +1,119 @@
+typedef "InterfaceparamsA":{
+	    "H-QoS":"True",
+	    "RIB/FIB":"LARGE"
+	    "MAC address learning":"MEDIUM"
+
+}
+typedef "InterfaceparamsB":{
+	    "H-QoS":"False",
+	    "RIB/FIB":"Medium"
+	    "MAC address learning":"MEDIUM"
+
+}
+
+typedef "RedundancyParamsA":{
+	    "Power":"True",
+	    "Route Processor":"True",
+	    "Switch Fabric":"True"
+}
+
+
+"Configurations":{
+    "A1":{
+	"BU":"Norway",
+	"Type":"BPE",
+	"Domain":"Core",
+	"Outdoor":"False",
+	"Power":"DC",
+	"Redundancy":{
+	    "Power":"True",
+	    "Route Processor":"True",
+	    "Switch Fabric":"False"
+	}
+	"Interface Specifics":{
+	    "100GE":{
+		"Interface Parameters":"InterfaceparamsA"
+		"start":0,
+		"Upgrades":[0,0,0,2,2]
+	    }
+	    "10GE":{
+		"Interface Parameters":"InterfaceparamsB"
+		"start":4,
+		"Upgrades":[0,0,0,2,2]
+	    }
+	    "1GE":{
+		"Interface Parameters":"InterfaceparamsB"
+		"start":20,
+		"Upgrades":[0,0,0,10,10]
+	    }		
+	}
+	"Conditional requirements":{
+	    "Anti DDoS":"False",
+	    "Virtual Router":"True",
+	    "VPLS":"True"
+	    "Multicast":"True"
+	}
+    }
+    "A2":{
+	"BU":"Norway",
+	"Type":"MPE",
+	"Domain":"Core",
+	"Outdoor":"False",
+	"Power":"DC",
+	"Redundancy":"RedundancyParamsA"
+	"Interface Specifics":{
+	    "40GE":{
+		"Interface Parameters":"InterfaceparamsB"
+		"start":1,
+		"Upgrades":[0,0,0,2,2]
+	    }
+	    "10GE":{
+		"Interface Parameters":"InterfaceparamsB"
+		"start":4,
+		"Upgrades":[0,0,0,2,2]
+	    }
+	    "1GE":{
+		"Interface Parameters":"InterfaceparamsB"
+		"start":2,
+		"Upgrades":[10,2,0,0,0]
+	    }		
+	    "FE":{
+		"start":12,
+		"Upgrades":[0,0,0,0,0]
+	    }
+	    "Legacy":{
+		"STM-1":{
+		    "start":2,
+		    "upgrades":[2,0,0,0,0]
+		}
+		"STM-4":{
+		    "start":1,
+		    "upgrades":[0,1,0,0,0]
+		}
+		"E1":{
+		    "start":10,
+		    "upgrades":[2,0,0,0,0]
+		}
+	    }
+	}
+	"Conditional requirements":{
+	    "Anti DDoS":"False",
+	    "Virtual Router":"False",
+	    "VPLS":"False"
+	    "Multicast":"True"
+	}
+    }
+}
+
+"Network Model":{
+    "A1":{
+	"as-is":10,
+	"new":[10,0,0,2,2]
+    }
+    "A2":{
+	"as-is":2,
+	"new":[0,0,0,10,20]
+    }
+}
+    
+	
