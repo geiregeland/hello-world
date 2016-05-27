@@ -20,7 +20,7 @@ typedef "RedundancyParamsA":{
 
 "Configurations":{
     "A1":{
-	"BU":"Norway",
+	"BU":"xxx",
 	"Type":"BPE",
 	"Domain":"Core",
 	"Outdoor":"False",
@@ -55,7 +55,7 @@ typedef "RedundancyParamsA":{
 	}
     }
     "A2":{
-	"BU":"Norway",
+	"BU":"xxx",
 	"Type":"MPE",
 	"Domain":"Core",
 	"Outdoor":"False",
